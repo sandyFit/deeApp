@@ -1,0 +1,29 @@
+{
+  "name": "deeapp",
+  "version": "1.0.0",
+  "description": "App to catalog books",
+  "main": "server.js",
+  "scripts": {
+    "start": "node back/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon back/server",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon back/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandyFit/FullStack_Dee_App.git"
+  },
+  "author": "Sandra Ramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandyFit/FullStack_Dee_App/issues"
+  },
+  "homepage": "https://github.com/sandyFit/FullStack_Dee_App#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
