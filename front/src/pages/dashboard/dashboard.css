@@ -1,0 +1,50 @@
+.cont {
+    background-color: rgb(227, 225, 230);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.cont-glass {
+    display: grid;
+    height: 96%;
+    width: 96%;
+    background: rgb(252, 248, 248);
+    border-radius: .8rem;
+    gap: 16px;
+    grid-template-columns: 15rem auto;
+    overflow: hidden;
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .cont-glass {
+        grid-template-columns: 10% 50% auto;
+        overflow-y: scroll;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cont-glass {
+        grid-template-columns: 1fr;
+    }
+}
+
+.listContainer {
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 20px;
+    margin: 20px 1px 20px 3px;
+    border-radius: 5px;
+}
+
+.listTitle {
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,116 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.login-container {
+    background: linear-gradient(to right, #9c9bf9, #c076d5);
+    height: 105vh;
+}
+
+.login-wrapper {
+    max-width: 420px;
+    min-height: 500px;
+    position: relative;
+    bottom: 1.4rem;
+    margin: 80px auto;
+    padding: 40px 30px 30px 30px;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    z-index: 0;
+    
+}
+
+.login-wrapper::before {
+    content: "";
+    max-width: 420px;
+    min-height: 500px;
+    position: absolute;
+    background: rgba(255, 255, 255, .20);
+    inset: 0;
+    transform: rotate(-7deg);
+    z-index: -1;
+
+}
+
+.login-wrapper .name {
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: #555;
+}
+
+.login-wrapper .form-field input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: rgb(53, 51, 51) !important;
+    padding: 10px 15px 10px 10px;
+
+
+}
+
+.login-wrapper .form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: inset 8px 8px 8px #a2a6a9, inset -8px -8px 8px #fff;
+}
+
+.login-wrapper .form-field .icon {
+    color: rgb(125, 124, 124);
+}
+
+
+
+.login-btn {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    color: rgb(43, 42, 42);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px #969696,
+        -3px -3px 3px rgb(239, 237, 237);
+    letter-spacing: 1.3px;
+}
+
+.login-btn:hover {
+    border: none;
+    background-color: #7232fd;
+    color: #fff;
+    font-size: 1.18rem;
+    transition: 0.3s ease-in-out;
+}
+
+.login-wrapper a {
+    text-decoration: none;
+}
+
+.login-wrapper a:hover {
+    color: #2e2ee5;
+}
+
+
+.margin {
+    margin-left: 5px !important;
+}
+
+@media(max-width: 380px) {
+    .login-wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px;
+    }
+}
