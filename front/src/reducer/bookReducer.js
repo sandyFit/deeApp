@@ -3,12 +3,12 @@ import {
     ALL_BOOKS_SUCCESS,
     ALL_BOOKS_FAIL,
     CLEAR_ERRORS,
-    PRODUCT_DETAILS_REQUEST,
-    PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL
+    BOOK_DETAILS_REQUEST,
+    BOOK_DETAILS_SUCCESS,
+    BOOK_DETAILS_FAIL
 } from "../constants/bookConstants";
 
-export const bookReducer = (state ={ books: []}, action)=>{
+export const booksReducer = (state ={ books: []}, action)=>{
     switch(action.type){
         case ALL_BOOKS_REQUEST:
             return{
@@ -40,5 +40,38 @@ export const bookReducer = (state ={ books: []}, action)=>{
 
         default:
             return state; //estado por defecto: init
+    }
+}
+
+//REDUCER PARA TENER TODOS LOS DETALLES
+export const bookDetailsReducer = (state = { book: {} }, action) => {
+    switch (action.type) {
+
+        case BOOK_DETAILS_REQUEST:
+            return {
+                ...state, // ....spread por si hay tardanza
+                loading: true
+            }
+
+        case BOOK_DETAILS_SUCCESS:
+            return {
+                loading: false,
+                book: action.payload
+            }
+
+        case BOOK_DETAILS_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
     }
 }

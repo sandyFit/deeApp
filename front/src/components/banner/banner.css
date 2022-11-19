@@ -1,5 +1,6 @@
 .main-container {
     background-image: linear-gradient(to right, #9c9bf9, #c076d5);
+    width: 100vw;
     height: 90vh;
 }
 

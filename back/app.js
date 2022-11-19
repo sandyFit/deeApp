@@ -1,12 +1,21 @@
-const express = require('express');
+const express = require('express')
 const app = express();
+const errorMiddleware = require('./middleware/errors')
+const cookieParser = require('cookie-parser')
 
-app.use(express.json());
+// Using imported consts
+app.use(express.json())
+app.use(cookieParser()) // should be active before the routes
 
-//Importar rutas
-const books = require('./routes/booksRoute');
+//Importing Routes
+const books = require('./routes/booksRoute')
+const users = require('./routes/authRoute')
 
-// Ruta del navegador
+// Browser's default routes
 app.use('/api', books)
+app.use('/api', users)
+
+//Middleware to handle errors globally
+app.use(errorMiddleware)
 
 module.exports = app

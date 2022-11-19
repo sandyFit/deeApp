@@ -1,25 +1,26 @@
-.table .status {
-    padding: 5px;
-    border-radius: 5px;
+.btn-primary {
+    background: rgb(0, 179, 255) !important;
+}
+.btn-primary:hover {
+    background: rgb(2, 157, 223) !important;
 }
 
-.table .status .Read {
-    color: green;
-    background-color: rgba(0, 128, 0, 0.151);
+.btn-warning {
+    background-color: rgb(24, 244, 112) !important;
 }
 
-.Pending {
-    color: goldenrod;
-    background-color: rgba(189, 189, 3, 0.103);
+.btn-warning:hover {
+    background-color: rgb(14, 184, 82) !important;
 }
 
-.cellAction {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.btn-danger {
+    background-color: rgb(234, 29, 29) !important;
 }
-.viewButton {
-    padding: 2px 5px;
-    border-radius: 5px;
-    color: darkblue;
+
+.btn-danger:hover {
+    background-color: rgb(178, 14, 14) !important;
+}
+
+.thead-info {
+    background-color: rgb(252, 249, 255) !important;
 }

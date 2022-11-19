@@ -1,12 +1,15 @@
 import React, { Fragment, useEffect } from 'react'
-import { Link } from "react-router-dom";
-
+import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux';
 import { getBooks } from '../../../actions/bookActions';
 import { useAlert } from 'react-alert';
-import { MDBDataTable } from 'mdbreact' 
-import MetaData from '../../layouts/Metadata';
-
+import {MDBDataTable} from 'mdbreact'
+import MetaData from '../../layouts/Metadata'
+import AutorenewIcon from '@mui/icons-material/Autorenew';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import './table.css'
 
 const DataTable = () => {
 
@@ -23,31 +26,24 @@ const DataTable = () => {
     }, [dispatch])
 
 
+  
   const setBooks = () => {
     const data = {
       columns: [
-      
-        {
-          label: 'ISBN',
-          field: 'isbn',
-        },
-
         {
           label: 'Title',
-          field: 'title',
-          sort: 'asc'
+          field: 'title'        
         },
-        
+          
         {
           label: 'Author',
           field: 'author',
-          sort: 'asc'
         },
-        
         {
           label: 'Pages',
           field: 'pages',
         },
+          
         {
           label: 'Status',
           field: 'status',
@@ -56,57 +52,57 @@ const DataTable = () => {
           label: 'Actions',
           field: 'actions',
         }
-      
       ],
-      rows: []
+        rows: []
     }
 
-    // books.forEach(book => {
-    //   data.rows.push({
-    //     isbn: book.isbn,
-    //     title: `$${book.title}`,
-    //     author: book.author,
-    //     pages: book.pages,
-    //     status: book.status,
-    //     actions: <Fragment>
-    //       <Link to={`/book/${book._id}`} className="btn btn-primary py-1 px-2">
-    //         <i className="fa fa-eye"></i>
-    //       </Link><Link to="/" className="btn btn-warning py-1 px-2">
-    //         <i class="fa fa-pencil"></i>
-    //       </Link>
+    books.forEach(book => {
+      data.rows.push({
+        title: book.title,
+        author: book.author,       
+        pages: book.pages,       
+        status: book.status,
+        actions:
+          <Fragment>
+            <Link to={`/book/${book._id}`} className="btn btn-primary py-1 px-2">
+              <VisibilityIcon/>
+            </Link>
+            <Link to="/" className="btn btn-warning py-1 px-2">
+              <EditIcon/>
+            </Link>
 
-    //       <Link to="/" className="btn btn-danger py-1 px-2">
-    //         <i className="fa fa-trash"></i>
-    //       </Link>
-                      
+            <Link to="/" className="btn btn-danger py-1 px-2">
+              <DeleteForeverIcon/>
+            </Link>                    
+        </Fragment>
+      })
+    })
 
-    //     </Fragment>
-    //   })
-    // })
-
-    // return data;
+    return data;
   }
 
     return (
           <Fragment>
             <MetaData title={'All Books'} />
-            <div className='row'>
-                
-
-                <div className= 'col-12 col-md-10'>
-                    <Fragment>
-                        
-                        {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
-                              <MDBDataTable
-                                  data={setBooks()}
-                                  className="px-3"
-                                  bordered
-                                  striped
-                                  hover
-                              />
-                          )}
-                            
-                        
+            <div className='row'>                
+                <div className= 'col-12 col-md-12'>
+                    <Fragment>                        
+                        {loading ? <AutorenewIcon/> :(
+                          <MDBDataTable 
+                            className='p-3'
+                            responsive 
+                            hover
+                            data={setBooks()} 
+                            entriesOptions={[5, 8]}
+                            // pagesAmount={4}                       
+                            noBottomColumns={true}
+                            info={false}
+                            searching={false}
+                            onSort={value =>  console.log(value)}
+                            bordered                            
+                            small                          
+                          />
+                          )}                                                    
                     </Fragment>
                 </div>
             </div>

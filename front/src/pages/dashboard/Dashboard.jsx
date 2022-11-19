@@ -40,7 +40,7 @@ const Dashboard = () => {
                           <div className="col-xl-4 col-sm-6 mb-3">
                               <div className="card text-white bg-info bg-gradient o-hidden h-100">
                                   <div className="card-body">
-                                      <div className="text-center card-font-size">Take Notes<br /> <b>12</b></div>
+                                      <div className="text-center card-font-size">My Notes<br /> <b>12</b></div>
                                   </div>
                                   <Link className="card-footer text-white text-decoration-none clearfix small z-1" to="/editor">
                                       <span className="float-left">See More</span>
@@ -54,7 +54,7 @@ const Dashboard = () => {
                           <div className="col-xl-4 col-sm-6 mb-3">
                               <div className="card text-white bg-primary bg-gradient o-hidden h-100">
                                   <div className="card-body">
-                                      <div className="text-center card-font-size">Profile<br /> <b>34</b></div>
+                                      <div className="text-center card-font-size">My Profile<br /> <b>34</b></div>
                                   </div>
                                   <Link className="card-footer text-white text-decoration-none clearfix small z-1" to="/profile">
                                       <span className="float-left">See More</span>

@@ -1,29 +1,22 @@
 import React from 'react'
-import './list.css'
 import Sidebar from '../../components/dashboard/sidebar/Sidebar';
 import SearchBar from '../../components/dashboard/searchbar/SearchBar';
-import DataTable from '../../components/dashboard/table/Table';
+import BookDetails from '../../components/dashboard/details/BookDetails';
 
-export default function 
-() {
+const BookDetailsView = () => {
   return (
     <section >
      <div className="cont">
       <div className = 'cont-glass d-flex'>
-          <Sidebar />
-          
+          <Sidebar />          
             <div>
               <div className='flex justify-center mt-4'>
               <SearchBar />
-              <div className="listContainer my-3">
-                <div className="listTitle">
-                  <h1 className='text-center my-2 mb-4'>My Books</h1>
-                  
-                  <DataTable/>
+              <div className="listContainer overflow-auto my-3">
+                <div className="">                  
+                  <BookDetails/>
                 </div>
-              </div>
-              
-                    
+              </div>                                  
             </div>        
           </div>    
         </div>
@@ -31,3 +24,5 @@ export default function
     </section>
   )
 }
+
+export default BookDetailsView

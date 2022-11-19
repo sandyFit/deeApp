@@ -5,12 +5,11 @@ Así, thunk puede ser usado para retrasar el envío de una acción hasta que se 
 línea de código asíncrona.*/
 import thunk from 'redux-thunk'; 
 import { composeWithDevTools} from 'redux-devtools-extension';
-import { bookReducer, bookDetailsReducer } from './reducer/bookReducer';
+import { booksReducer, bookDetailsReducer } from './reducer/bookReducer';
 
 const reducer= combineReducers ({
-    books: bookReducer,
-    
-    //bookDetails: bookDetailsReducer
+    books: booksReducer,    
+    bookDetails: bookDetailsReducer
 })
 
 let initialState = {}

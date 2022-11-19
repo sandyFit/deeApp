@@ -5,9 +5,9 @@ import Home from './pages/home/Home'
 import Dashboard from './pages/dashboard/Dashboard';
 import Login from './pages/login/Login';
 import List from './pages/list/List';
-import Single from './pages/single/Single';
 import New from './pages/new/New';
 import SignUp from './pages/signup/SignUp';
+import BookDetailsView from './pages/details/BookDetailsView';
 
 
 function App() {
@@ -24,21 +24,18 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
 
             <Route path="/manage-books">
-              <Route index element={<List />} />
-              <Route path=":bookISBN" element={<Single />} />
+              <Route index element={<List />} />                          
               <Route
                 path="new"
                 element={<New />}
               />
+            
             </Route>
-            <Route path="products">
-              <Route index element={<List />} />
-              <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New />}
-              />
+
+            <Route path="/book/:id">
+              <Route index element={<BookDetailsView />} />
             </Route>
+
           </Route>
         </Routes>
 
