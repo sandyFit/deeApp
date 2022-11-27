@@ -1,12 +1,27 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './sidebar.css';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import {logout} from '../../../actions/userActions'
+import { useAlert } from 'react-alert'
+import {useDispatch} from 'react-redux'
 
 export default function Sidebar() {
+
+  const alert = useAlert()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const logoutHandler = () => {
+    dispatch(logout())
+    navigate('/')
+    alert.success("You've been logged out")
+  }
+
   return (
+    
     <div className="wrapper">
       <div className="sidebar">
         <div className='dash-title'>
@@ -48,13 +63,13 @@ export default function Sidebar() {
               </li>    
               <ul>
                 <li className="card-nav">
-                  <Link to='/collections' className='sidebar-link con'>
-                    Collections
+                  <Link to='/manage-books' className='sidebar-link con'>
+                    Manage Books
                   </Link>
                 </li>
                 <li className="card-nav">
-                  <Link to='/manage-books' className='sidebar-link con'>
-                    Manage Books
+                  <Link to='/book/new' className='sidebar-link con'>
+                    Add a Book
                   </Link>
                 </li>                        
                 <li className="card-nav">
@@ -66,7 +81,7 @@ export default function Sidebar() {
             </div>
           </ul> 
               
-          <button className="logout">
+          <button onClick={logoutHandler} className="logout">
               Logout
           </button>
         </div>

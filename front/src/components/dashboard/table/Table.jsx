@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux';
-import { getBooks } from '../../../actions/bookActions';
+import { deleteBook, getBooks } from '../../../actions/bookActions';
 import { useAlert } from 'react-alert';
 import {MDBDataTable} from 'mdbreact'
 import MetaData from '../../layouts/Metadata'
@@ -13,17 +13,26 @@ import './table.css'
 
 const DataTable = () => {
 
-  const { loading, books, error} = useSelector(state=> state.books)
-    const alert= useAlert();
+  const { loading, books, error } = useSelector(state => state.books)
+  const alert= useAlert();
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        if (error){
-            return alert.error(error)
-        }
+  const deleteBookHandler = (id) => {
+    const response = window.confirm('Are you sure you want to delete this book?')
+    if (response) {
+      dispatch(deleteBook(id))
+      alert.success("Your book has been eliminated")
+      window.location.reload(false)
+    }
+  }
+  
+  useEffect(() => {
+      if (error){
+          return alert.error(error)
+      }
 
-        dispatch(getBooks());
-    }, [dispatch])
+      dispatch(getBooks());
+  }, [dispatch])
 
 
   
@@ -67,13 +76,16 @@ const DataTable = () => {
             <Link to={`/book/${book._id}`} className="btn btn-primary py-1 px-2">
               <VisibilityIcon/>
             </Link>
-            <Link to="/" className="btn btn-warning py-1 px-2">
+            <Link to={`/updateBook/${book._id}`} className="btn btn-warning py-1 px-2">
               <EditIcon/>
             </Link>
 
-            <Link to="/" className="btn btn-danger py-1 px-2">
+            <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteBookHandler(book._id)}>
+                <DeleteForeverIcon/>
+            </button>
+            {/* <Link to="/" className="btn btn-danger py-1 px-2">
               <DeleteForeverIcon/>
-            </Link>                    
+            </Link>                     */}
         </Fragment>
       })
     })

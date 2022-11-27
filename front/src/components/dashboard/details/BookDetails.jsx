@@ -5,6 +5,7 @@ import AutorenewIcon from '@mui/icons-material/Autorenew'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBookDetails, clearErrors } from '../../../actions/bookActions'
 import { useParams } from 'react-router-dom' // Para encontrar el id
+//import { Carousel } from 'react-bootstrap'
 
 
 const BookDetails = () => {
@@ -32,9 +33,11 @@ const BookDetails = () => {
         <Fragment>
           <MetaData title={book.title}/>
             <div className='row d-flex justify-content-around'>
-                <div className='col-12 col-lg-5 img-fluid' id="book_image">              
-                    {/* <img className="d-block w-100" src={img.url} alt={book.title}/>              */}
+                <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
+              <div className='col-12 col-lg-5 img-fluid m-5 w-75' id="book_image">              
+                    <img className="d-block w-100" src={'https://www.timetothink.com/wp-content/uploads/2019/06/book-02.jpg' + book.image} alt={book.title}/>              
                 </div>
+          </div>
 
                 <div className='col-12 col-lg-5 mt-5'>
                     <h3>{book.title}</h3>
@@ -61,13 +64,13 @@ const BookDetails = () => {
                             className="btn btn-primary mt-4"
                             data-toggle="modal" data-target="#ratingModal"
                             >
-                            Deja tu Opinion
+                            Take Notes
                         </button>
-                        :
-                        <div className="alert alert-danger mt-5"
+                        
+                        {/* <div className="alert alert-danger mt-5"
                             type="alert">
                             Inicia Sesión para dejar tu review
-                        </div>                                               
+                        </div>                                                */}
                 </div>
             </div>
         </Fragment>

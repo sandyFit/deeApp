@@ -15,7 +15,7 @@ export default function
             <div>
               <div className='flex justify-center mt-4'>
               <SearchBar />
-              <div className="listContainer my-3">
+              <div className="listContainer overflow-auto my-3">
                 <div className="listTitle">
                   <h1 className='text-center my-2 mb-4'>My Books</h1>
                   

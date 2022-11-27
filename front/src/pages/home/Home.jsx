@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import MetaData from "../../components/layouts/Metadata";
 import Navbar from "../../components/navbar/Navbar";
 import Banner from '../../components/banner/Banner';

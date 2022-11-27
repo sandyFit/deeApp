@@ -1,9 +1,9 @@
 import React from 'react'
 import Sidebar from '../../components/dashboard/sidebar/Sidebar'
 import SearchBar from '../../components/dashboard/searchbar/SearchBar'
-import NewBook from '../../components/dashboard/new/NewBook'
+import UpdateBook from '../../components/dashboard/update/UpdateBook'
 
-const NewBookView = () =>{
+const UpdateBookView = () => {
   return (
     <section >
      <div className="cont">
@@ -14,7 +14,7 @@ const NewBookView = () =>{
               <SearchBar />
               <div className="listContainer overflow-auto my-3">
                 <div className="">                  
-                  <NewBook/>
+                  <UpdateBook/>
                 </div>
               </div>                                  
             </div>        
@@ -24,5 +24,6 @@ const NewBookView = () =>{
     </section>
   )
 }
-export default NewBookView
+  
 
+export default UpdateBookView

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Add } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -19,9 +19,9 @@ const Footer = () => {
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
-              <a href="#"><FacebookIcon /></a>
-              <a href="#"><InstagramIcon/></a>
-              <a href="#"><LinkedInIcon /></a>
+              <a href="/"><FacebookIcon /></a>
+              <a href="/"><InstagramIcon/></a>
+              <a href="/"><LinkedInIcon /></a>
             </div>
             <p>
               <CopyrightIcon/>

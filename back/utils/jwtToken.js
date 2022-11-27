@@ -1,3 +1,4 @@
+
 //Create and sending a token saved in a cookie
 const tokenSent= (user, statusCode, res) =>{
 

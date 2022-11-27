@@ -5,7 +5,19 @@ import {
     CLEAR_ERRORS,
     BOOK_DETAILS_REQUEST,
     BOOK_DETAILS_SUCCESS,
-    BOOK_DETAILS_FAIL
+    BOOK_DETAILS_FAIL,
+    NEW_BOOK_REQUEST,
+    NEW_BOOK_SUCCESS,
+    NEW_BOOK_FAIL,
+    NEW_BOOK_RESET,    
+    UPDATE_BOOK_REQUEST,
+    UPDATE_BOOK_SUCCESS,
+    UPDATE_BOOK_FAIL,
+    UPDATE_BOOK_RESET,
+    DELETE_BOOK_REQUEST,
+    DELETE_BOOK_SUCCESS,
+    DELETE_BOOK_FAIL,
+    
 } from "../constants/bookConstants";
 
 export const booksReducer = (state ={ books: []}, action)=>{
@@ -75,3 +87,86 @@ export const bookDetailsReducer = (state = { book: {} }, action) => {
             return state
     }
 }
+
+// REDUCER FOR NEW BOOK REGISTRATION
+export const newBookReducer = (state={ book:{} }, action )=>{
+    switch(action.type){
+
+        case NEW_BOOK_REQUEST:
+            return{
+                ...state,
+                loading: true
+            }
+
+        case NEW_BOOK_SUCCESS:
+            return {
+                loading: false,
+                success: action.payload.success,
+                book: action.payload.book
+            }
+
+        case NEW_BOOK_FAIL:
+            return{
+                ...state,
+                error:action.payload
+            }
+            
+        case NEW_BOOK_RESET:
+            return{
+                ...state,
+                success:false
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error:null
+            }
+
+        default:
+            return state
+    }
+}
+
+export const bookReducer= (state = {}, action)=>{
+    switch(action.type){
+        case DELETE_BOOK_REQUEST:
+        case UPDATE_BOOK_REQUEST:
+            return{
+                ...state, 
+                loading:true
+            }
+        case DELETE_BOOK_SUCCESS:
+            return{
+                ...state,
+                loading: false,
+                isDeleted: action.payload
+            }
+
+        case UPDATE_BOOK_SUCCESS:
+            return{
+                ...state,
+                loading: false,
+                isUpdated: action.payload
+            }
+            
+        case DELETE_BOOK_FAIL:
+        case UPDATE_BOOK_FAIL:
+            return{
+                ...state,
+                error: action.payload
+            }
+            
+        case UPDATE_BOOK_RESET:
+            return{
+                ...state,
+                isUpdated: false
+            }
+        case CLEAR_ERRORS:
+            return {
+                error:null
+            }
+        default:
+            return state
+    }
+}
+

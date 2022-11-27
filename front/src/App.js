@@ -8,6 +8,7 @@ import List from './pages/list/List';
 import New from './pages/new/New';
 import SignUp from './pages/signup/SignUp';
 import BookDetailsView from './pages/details/BookDetailsView';
+import UpdateBook from './components/dashboard/update/UpdateBook';
 
 
 function App() {
@@ -24,16 +25,19 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
 
             <Route path="/manage-books">
-              <Route index element={<List />} />                          
-              <Route
-                path="new"
-                element={<New />}
-              />
-            
+              <Route index element={<List />} />                                                 
             </Route>
 
             <Route path="/book/:id">
               <Route index element={<BookDetailsView />} />
+            </Route>
+
+            <Route path="/book/new">
+              <Route index element={<New />} />
+            </Route>
+
+            <Route path="/updateBook/:id">
+              <Route index element={<UpdateBook />} />
             </Route>
 
           </Route>

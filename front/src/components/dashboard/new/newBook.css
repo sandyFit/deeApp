@@ -1,0 +1,12 @@
+.btn-new {
+    width: 25rem !important;
+    padding: 1rem 2rem !important;
+    letter-spacing: 3px;
+    background-color: #7232fd !important;
+    font-size: 1.4rem;
+}
+
+.btn-new:hover {
+    background-color: #631bfd !important;
+    font-size: 1.42rem !important;;
+}

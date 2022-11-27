@@ -67,5 +67,17 @@ userSchema.methods.getJwtToken = function () {
     })
 }
 
+//Generating a token to reset password
+ userSchema.methods.genResetPasswordToken = function () {
+    
+     const resetToken= crypto.randomBytes(20).toString('hex')
+
+     this.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest('hex')
+
+     this.resetPasswordExpire= Date.now() + 30*60*1000 //token last 30 mins
+
+     return resetToken // 
+ }
+
 
 module.exports = mongoose.model('auth', userSchema)
